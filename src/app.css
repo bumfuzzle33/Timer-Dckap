@@ -1,0 +1,36 @@
+.App{
+    /* background-color: brown; */
+    /* min-height: 100vh; */
+}
+
+#button_container{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.clock_container{
+    margin:0 auto;
+
+}
+
+@media only screen and (min-width:860px){
+    #clocksess_container{
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height:80vh;
+    }
+    #lapse_container{
+        height:100vh;
+    }
+}
+@media only screen and (max-width:860px){
+    #clocksess_container{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height:65vh;
+    }
+    
+}

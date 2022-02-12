@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Ubuntu:ital,wght@1,300;1,700&display=swap');
+.clock_container{
+    position:relative;
+    border-radius:50%;
+}
+.display_num{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:40px;
+    text-align: center;
+}
+.time_dis{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+.time_dis span{
+    font-size: 50px;
+}
+
+.pointer{
+    position:relative;
+    border-radius:50%;
+    left:50%;
+    transition:transform linear 1s;
+}
+
