@@ -68,6 +68,9 @@
     margin:0 auto;
 
 }
+#button_container{
+    margin-bottom:10vh !important;
+}
 @media only screen and (max-width:424px){
     #button_container button{
         padding:3px 9px;
@@ -87,6 +90,7 @@
     }
     #lapse_container{
         height:100vh;
+        overflow-y:auto;
     }
 }
 @media only screen and (max-width:859px){
@@ -98,5 +102,6 @@
         margin-top:30px !important;
 
     }
+   
     
 }

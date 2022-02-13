@@ -9,7 +9,6 @@ const Clock = ({radius,pointer_color,time,time_format})=>{
         height:`${radius*2}px`,
         width:`${radius*2}px`
     }
-    console.log('reel',time)
     const pointer_style = {
         backgroundColor:`${pointer_color}`,
         transform: `rotateZ(${time*6}deg) translate(-50%,0)`,

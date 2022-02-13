@@ -14,6 +14,7 @@
     color:white;
     border:none;
     transition:.2s ease-out background-color;
+    padding-top:12.5px;
 }
 #lapse_btn_container button:hover{
     background-color:#0466c8;
