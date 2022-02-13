@@ -1,32 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 #lapse{
     display:flex;
-    background-color:green;
     border-radius:10px;
     overflow:hidden;
     margin:20px;
+    align-items: center;
+    border:solid 2px #00b4d8;
+    box-shadow:0 0 10px #00b4d8;
     
-    
-}
-#lapse_text_container{
-    flex-grow:1;
-}
-#lapse_text_container h1{
-    font-family: 'Roboto Mono', monospace;
-    background-color: lightcoral;
-    padding:5px;
-    border-bottom:solid white 2px;
-    color:white;
-}
-#lapse_text_container h2{
-    padding:5px;
-    background-color: lightcoral;
-
-}
-
-#lapse_btn_container{
-    position:relative;
 }
 #lapse_btn_container button{
-    height:100%;
+    background-color:rgba(0,0,0,0);
+    color:white;
+    border:none;
+    transition:.2s ease-out background-color;
+}
+#lapse_btn_container button:hover{
+    background-color:#0466c8;
+
+}
+#lapse h1{
+    text-shadow:0 0 10px #00b4d8;
+    color:white;
+    font-family: 'Roboto Mono', monospace;
+    border-right:solid 2px white;
+    padding:0 6px;
+
+}
+#lapse h2{
+    flex-grow:1;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size:20px;
+    color:white;
+    text-shadow:0 0 10px #00b4d8;
 }

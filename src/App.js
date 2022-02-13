@@ -1,4 +1,4 @@
-import './app.css';
+import './App.css';
 import Anime from 'react-anime'
 import Clock from './components/clock/clock';
 import Lapse_box from './components/lapse_box/lapse_box';
@@ -38,7 +38,7 @@ function App() {
   }
   
   return (
-    <div className="App">
+    <div className="app">
       <div className="tile is-ancestor">
           <div className="tile is-9 is-parent is-vertical">
             
@@ -78,10 +78,10 @@ function App() {
             {/* here the button */}
             <div className="tile is-parent">
               <div id="button_container" className="tile is-child">
-                <button onClick={()=>start_timer()} className="button is-success is-medium">Start</button>
-                <button  className="button is-danger is-medium">Stop</button>
-                <button className="button is-warning is-medium">Reset</button>
-                <button className="button is-info is-medium">Lapse</button>
+                <button className="button_start" onClick={()=>start_timer()}>Start</button>
+                <button className="button_stop">Stop</button>
+                <button className="button_reset">Reset</button>
+                <button className="button_lapse">Lapse</button>
               </div>
             </div>
           </div>

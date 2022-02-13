@@ -1,0 +1,99 @@
+.app{
+    background-color: #001219;
+    min-height:100vh;
+    
+}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Ubuntu:ital,wght@1,300;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+#button_container{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+#button_container button{
+    font-family: 'Roboto Mono', monospace;
+    cursor:pointer;
+    border-radius: 10px;
+    padding:10px 30px;
+    font-size:20px;
+    background-color:rgba(0,0,0,0);
+    transition:box-shadow .65s ease-in-out;
+
+
+}
+#button_container button:hover{
+    box-shadow:none;
+    border:2px solid rgba(0,0,0,0);
+    color:white;
+
+}
+.button_lapse{
+    color:#1CB5E0;
+    border:solid #085078 2px;
+    box-shadow: 0 0 15px #085078;
+}
+.button_lapse:hover{
+    background-image: linear-gradient(30deg,#085078,#1CB5E0);
+}
+.button_reset{
+    color:#f7b733;
+    border:solid #fc4a1a 2px;
+    box-shadow: 0 0 15px #fc4a1a;
+}
+.button_reset:hover{
+    background-image: linear-gradient(30deg,#fc4a1a,#f7b733);
+}
+.button_stop{
+    color: #ef233c;
+    border:solid  #dd2476 2px;
+    box-shadow: 0 0 15px #ff2756;
+
+}
+.button_stop:hover{
+    background-image:linear-gradient(30deg,#dd2476,#FF512F)
+}
+.button_start{
+    color: #68ffa2;
+    border:solid #38ef7d 2px;
+    box-shadow: 0 0 15px #9ecaed;
+}
+
+.button_start:hover{
+    background-image:linear-gradient(30deg,#11998e,#38ef7d);
+}
+
+.clock_container{
+    margin:0 auto;
+
+}
+@media only screen and (max-width:424px){
+    #button_container button{
+        padding:3px 9px;
+    }
+}
+@media only screen and (max-width:600px) and (min-width:424px){
+    #button_container button{
+        padding:5px 15px;
+    }
+}
+@media only screen and (min-width:860px){
+    #clocksess_container{
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height:80vh;
+    }
+    #lapse_container{
+        height:100vh;
+    }
+}
+@media only screen and (max-width:860px){
+    #clocksess_container{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height:65vh;
+    }
+    
+}
