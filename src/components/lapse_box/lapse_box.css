@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+#lapse{
+    display:flex;
+    background-color:green;
+    border-radius:10px;
+    overflow:hidden;
+    margin:20px;
+    
+    
+}
+#lapse_text_container{
+    flex-grow:1;
+}
+#lapse_text_container h1{
+    font-family: 'Roboto Mono', monospace;
+    background-color: lightcoral;
+    padding:5px;
+    border-bottom:solid white 2px;
+    color:white;
+}
+#lapse_text_container h2{
+    padding:5px;
+    background-color: lightcoral;
+
+}
+
+#lapse_btn_container{
+    position:relative;
+}
+#lapse_btn_container button{
+    height:100%;
+}

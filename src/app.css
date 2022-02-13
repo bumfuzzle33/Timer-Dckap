@@ -2,6 +2,7 @@
     /* background-color: brown; */
     /* min-height: 100vh; */
 }
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Ubuntu:ital,wght@1,300;1,700&display=swap');
 
 #button_container{
     display:flex;

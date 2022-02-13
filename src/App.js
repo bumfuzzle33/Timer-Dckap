@@ -44,7 +44,7 @@ function App() {
             
             {/* here figures */}
             <div className="tile is-parent">
-              <div id="clocksess_container"  className="tile is-child notification is-warning">
+              <div id="clocksess_container"  className="tile is-child">
               <Clock
                   radius={80}
                   pointer_color="skyblue"
@@ -87,7 +87,7 @@ function App() {
           </div>
           {/* lapse here */}
           <div className="tile is-parent ">
-              <div id="lapse_container" className="tile is-child notification is-success">
+              <div id="lapse_container" className="tile is-child">
                 <Lapse_box/>
               </div>
           </div>
