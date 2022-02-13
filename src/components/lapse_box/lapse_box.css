@@ -7,7 +7,20 @@
     align-items: center;
     border:solid 2px #00b4d8;
     box-shadow:0 0 10px #00b4d8;
+    animation:1s slideIn ease-in-out;
     
+}
+@keyframes slideIn {
+    from {
+        margin-left: 100%;
+        width: 300%;
+      }
+    
+
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
 }
 #lapse_btn_container button{
     background-color:rgba(0,0,0,0);
