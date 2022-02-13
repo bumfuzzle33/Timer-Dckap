@@ -1,71 +1,56 @@
 import './App.css';
-import Anime from 'react-anime'
 import Clock from './components/clock/clock';
 import Lapse_box from './components/lapse_box/lapse_box';
 import {useState,useRef} from 'react'
 import './bulma.css'
 
+
 function App() {
   const [second,set_second] = useState(0)
-  const is_start_timer = useRef(false)
   const minuteRef = useRef(0);
   const hourRef = useRef(0);
+  const intervalId = useRef(false);
   function start_timer(){
-    setInterval(()=>{
-      if(is_start_timer){
-        let min_once = true;
-
-        set_second(prevCount=>{
-
-          if(prevCount===59){
-            min_once&&minuteRef.current++;
-            min_once=false;
-            if(minuteRef.current===59){
-              minuteRef.current=0;
-              hourRef.current++;
-              if(hourRef.current===59)
-                hourRef.current = 0;
-            }
-            return 0;
-  
-          }
-          return prevCount+1;
-        })
-      }
-      
-      
-    },100);
+    setInterval(function(){
+      set_second(prev=>prev+1)
+    },1000)
   }
-  
+  function stop_timer(){
+    clearInterval(intervalId.current)
+  }
+  function reset_timer(){
+    clearInterval(intervalId.current)
+    minuteRef.current = 0;
+    hourRef.current = 0;
+    set_second(0);
+
+  }
   return (
     <div className="app">
       <div className="tile is-ancestor">
           <div className="tile is-9 is-parent is-vertical">
             
-            {/* here figures */}
+            {/* here clockss */}
             <div className="tile is-parent">
               <div id="clocksess_container"  className="tile is-child">
-              <Clock
+                {/* <Clock
                   radius={80}
                   pointer_color="skyblue"
-                  angle={hourRef.current*6}
-                  number={hourRef.current}
+                  time={hourRef.current}
                   time_format="Hour(s)"
                 
-                />
+                /> */}
+                {/* <Clock
+                  radius={80}
+                  pointer_color="skyblue"
+                  time={minuteRef.current}
+                  time_format="Min(s)"
+                
+                /> */}
                 <Clock
                   radius={80}
                   pointer_color="skyblue"
-                  angle={minuteRef.current*6}
-                  number={minuteRef.current}
-                  time_format="Min(s)"
-                
-              />
-              <Clock
-                  radius={80}
-                  pointer_color="skyblue"
-                  angle={second*6}
-                  number={second}
+                  time={second}
                   time_format="Second(s)"
                 
                 />
@@ -79,8 +64,8 @@ function App() {
             <div className="tile is-parent">
               <div id="button_container" className="tile is-child">
                 <button className="button_start" onClick={()=>start_timer()}>Start</button>
-                <button className="button_stop">Stop</button>
-                <button className="button_reset">Reset</button>
+                <button className="button_stop" onClick={()=>stop_timer()}>Stop</button>
+                <button className="button_reset" onClick={()=>reset_timer()}>Reset</button>
                 <button className="button_lapse">Lapse</button>
               </div>
             </div>

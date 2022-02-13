@@ -1,6 +1,7 @@
 .app{
     background-color: #001219;
     min-height:100vh;
+    overflow:hidden;
     
 }
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Ubuntu:ital,wght@1,300;1,700&display=swap');
@@ -77,7 +78,7 @@
         padding:5px 15px;
     }
 }
-@media only screen and (min-width:860px){
+@media only screen and (min-width:859px){
     #clocksess_container{
         display:flex;
         justify-content: space-evenly;
@@ -88,12 +89,14 @@
         height:100vh;
     }
 }
-@media only screen and (max-width:860px){
+@media only screen and (max-width:859px){
     #clocksess_container{
         display:flex;
         flex-direction: column;
         justify-content: space-evenly;
         height:65vh;
+        margin-top:30px !important;
+
     }
     
 }
