@@ -6,41 +6,48 @@ import './bulma.css'
 
 
 function App() {
+  const [is_start,set_is_start] = useState(false)
   const [lapse_array,set_lapse_array] = useState([])
   const [second,set_second] = useState(0)
   const minuteRef = useRef(0);
   const hourRef = useRef(0);
   const intervalId = useRef(false);
   function start_timer(){
-    intervalId.current=setInterval(function(){
-      let minute_once = true;
-      set_second(prevSecond=>{
-        if(prevSecond<59){
-          return prevSecond+1;
-        }
-        else{
-          if(minuteRef.current<59){
-            minute_once&&minuteRef.current++;
-            minute_once = false;
+    if(!is_start){
+      intervalId.current=setInterval(function(){
+        let minute_once = true;
+        set_second(prevSecond=>{
+          if(prevSecond<59){
+            return prevSecond+1;
           }
           else{
-            minuteRef.current=0;
-            if(hourRef.current<59){
-              hourRef.current++;
+            if(minuteRef.current<59){
+              minute_once&&minuteRef.current++;
+              minute_once = false;
             }
             else{
-              hourRef.current=0;
+              minuteRef.current=0;
+              if(hourRef.current<59){
+                hourRef.current++;
+              }
+              else{
+                hourRef.current=0;
+              }
             }
+            return 0;
+  
           }
-          return 0;
+  
+        })
+      },1000)
 
-        }
-
-      })
-    },1000)
+      set_is_start(true)
+    }  
+    
   }
   function stop_timer(){
     clearInterval(intervalId.current)
+    set_is_start(false)
   }
   function reset_timer(){
     clearInterval(intervalId.current)
@@ -48,6 +55,8 @@ function App() {
     hourRef.current = 0;
     set_second(0);
     set_lapse_array([])
+    set_is_start(false)
+
 
   }
   function lapse_timer(){  
