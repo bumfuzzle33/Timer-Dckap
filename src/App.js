@@ -1,7 +1,7 @@
 import './App.css';
 import Clock from './components/clock/clock';
 import Lapse_box from './components/lapse_box/lapse_box';
-import {useState,useRef} from 'react'
+import {useState,useRef,useEffect} from 'react'
 import './bulma.css'
 
 
@@ -11,43 +11,73 @@ function App() {
   const [second,set_second] = useState(0)
   const minuteRef = useRef(0);
   const hourRef = useRef(0);
+
+  useEffect(()=>{
+    if(sessionStorage['sessionTime']){
+      const sessionTime = JSON.parse(sessionStorage.getItem('sessionTime'))
+      hourRef.current = sessionTime.hour;
+      minuteRef.current = sessionTime.minute;
+      set_second(sessionTime.second)
+    }
+    if(sessionStorage['sessionLapse']){
+      const sessionLapse = JSON.parse(sessionStorage.getItem('sessionLapse'))
+      set_lapse_array(sessionLapse)
+    }
+
+  },[])
   const intervalId = useRef(false);
   function start_timer(){
     if(!is_start){
       intervalId.current=setInterval(function(){
         let minute_once = true;
         set_second(prevSecond=>{
+          let newSecond = 0;
+          
           if(prevSecond<59){
-            return prevSecond+1;
-          }
-          else{
+            newSecond = prevSecond+1;
+          }else{
             if(minuteRef.current<59){
               minute_once&&minuteRef.current++;
               minute_once = false;
-            }
-            else{
+            }else{
               minuteRef.current=0;
               if(hourRef.current<59){
                 hourRef.current++;
-              }
-              else{
+              }else{
                 hourRef.current=0;
               }
             }
-            return 0;
   
           }
-  
+          sessionStorage.setItem('sessionTime',JSON.stringify({
+            hour:hourRef.current,
+            minute:minuteRef.current,
+            second:newSecond
+          }))
+          return newSecond;
         })
       },1000)
-
       set_is_start(true)
+    }
+    // pause code
+    else{
+      clearInterval(intervalId.current)
+      set_is_start(false)
     }  
     
   }
   function stop_timer(){
     clearInterval(intervalId.current)
+    minuteRef.current = 0;
+    hourRef.current = 0;
+    set_second(0);
     set_is_start(false)
+    sessionStorage.setItem('sessionTime',JSON.stringify({
+      hour:0,
+      minute:0,
+      second:0
+    }))
+    
   }
   function reset_timer(){
     clearInterval(intervalId.current)
@@ -56,6 +86,12 @@ function App() {
     set_second(0);
     set_lapse_array([])
     set_is_start(false)
+    sessionStorage.setItem('sessionTime',JSON.stringify({
+      hour:0,
+      minute:0,
+      second:0
+    }))
+    sessionStorage.setItem('sessionLapse',JSON.stringify([]))
 
 
   }
@@ -63,14 +99,14 @@ function App() {
     let current_time = `${hourRef.current<10?'0'+hourRef.current:hourRef.current}:${minuteRef.current<10?'0'+minuteRef.current:minuteRef.current}:${second<10?'0'+second:second}`
     let new_lapse_array = [...lapse_array];
     new_lapse_array.push(current_time);
-
+    sessionStorage.setItem('sessionLapse',JSON.stringify([...new_lapse_array]))
     set_lapse_array(new_lapse_array)
   }
   function delete_lapse(index){
     let current_lapse_arr = [...lapse_array]
     current_lapse_arr.splice(index,1)
+    sessionStorage.setItem('sessionLapse',JSON.stringify([...current_lapse_arr]))
     set_lapse_array(current_lapse_arr)
-
   }
   return (
     <div className="app">
