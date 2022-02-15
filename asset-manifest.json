@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Timer-Dckap/static/css/main.1c90b664.css",
-    "main.js": "/Timer-Dckap/static/js/main.4c8e24cc.js",
+    "main.css": "/Timer-Dckap/static/css/main.b420518d.css",
+    "main.js": "/Timer-Dckap/static/js/main.c36ff1a7.js",
     "index.html": "/Timer-Dckap/index.html",
-    "main.1c90b664.css.map": "/Timer-Dckap/static/css/main.1c90b664.css.map",
-    "main.4c8e24cc.js.map": "/Timer-Dckap/static/js/main.4c8e24cc.js.map"
+    "main.b420518d.css.map": "/Timer-Dckap/static/css/main.b420518d.css.map",
+    "main.c36ff1a7.js.map": "/Timer-Dckap/static/js/main.c36ff1a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c90b664.css",
-    "static/js/main.4c8e24cc.js"
+    "static/css/main.b420518d.css",
+    "static/js/main.c36ff1a7.js"
   ]
 }
